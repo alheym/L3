@@ -4,6 +4,7 @@ import html from './checkout.tpl.html';
 import { formatPrice } from '../../utils/helpers';
 import { cartService } from '../../services/cart.service';
 import { ProductData } from 'types';
+import { statisticsService } from '../../services/statistics.service';
 
 class Checkout extends Component {
   products!: ProductData[];
@@ -33,8 +34,14 @@ class Checkout extends Component {
     fetch('/api/makeOrder', {
       method: 'POST',
       body: JSON.stringify(this.products)
+    }).then(async (response) => {
+      if (response.ok) {
+        await statisticsService.onOrder(this.products, new Date().getTime())
+        // window.location.href = '/?isSuccessOrder';
+      }
+    }).catch((e) => {
+      console.error(e)
     });
-    window.location.href = '/?isSuccessOrder';
   }
 }
 
