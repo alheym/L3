@@ -13,6 +13,9 @@
 
   &__buttons {
     margin-left: auto;
+    a:not(:last-of-type) {
+      margin-right: 40px;
+    }
   }
 
   a {

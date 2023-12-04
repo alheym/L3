@@ -90,6 +90,13 @@ img {
   padding: 0;
   margin: 0;
 
+  &.is__active {
+    svg {
+      stroke: #ff5100;
+    }
+  }
+
+
   svg {
     width: 32px;
     height: 32px;
@@ -120,7 +127,8 @@ img {
   }
 }
 
-.cart {
+.cart,
+.favorites {
   position: relative;
 }
 
