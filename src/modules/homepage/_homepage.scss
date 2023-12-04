@@ -5,6 +5,34 @@
     }
   }
 
+  &__search {
+    padding-bottom: 30px;
+
+    &-input {
+      width: 100%;
+      height: 60px;
+      border: 2px solid var(--key-color);
+      border-radius: 15px;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 550;
+      line-height: 32px; /* 106.667% */
+      letter-spacing: -0.3px;
+      color: #E6E1EF;
+      padding-left: 30px;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: #E6E1EF;
+        opacity: 1;
+      }
+      
+      &:-ms-input-placeholder {
+        color: #E6E1EF;
+      }
+    }
+  }
+
   &__popular {
     margin-top: 30px;
   }

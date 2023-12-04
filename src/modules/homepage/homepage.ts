@@ -3,18 +3,23 @@ import { Component } from '../component';
 import html from './homepage.tpl.html';
 
 import { ProductList } from '../productList/productList';
+import { SearchTags } from '../searchTags/searchTags';
 
 class Homepage extends Component {
   popularProducts: ProductList;
+  searchTags: SearchTags;
 
   constructor(props: any) {
     super(props);
 
+    this.searchTags = new SearchTags()
     this.popularProducts = new ProductList();
     this.popularProducts.attach(this.view.popular);
+    this.searchTags.attach(this.view.searchTags)
   }
 
   render() {
+    this.searchTags.update(['чехол iphone 13 pro', 'коляски agex', 'яндекс станция 2']);
     fetch('/api/getPopularProducts')
       .then((res) => res.json())
       .then((products) => {
